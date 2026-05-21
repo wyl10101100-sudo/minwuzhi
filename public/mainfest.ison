@@ -1,0 +1,20 @@
+{
+  "name": "闽物志",
+  "short_name": "闽物志",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f3ee",
+  "theme_color": "#003c3a",
+  "icons": [
+    {
+      "src": "/icons/image 26.svg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/image 27.svg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -48,7 +48,7 @@ export default function ScanPage() {
       }}
     >
       {/* 替换灯笼 icon 为你的图片 */}
-      <div style={{ width: 80, height: 80, marginBottom: 20, position: "relative" }}>
+      <div style={{ width: "100%", height: "100%", marginBottom: 20, position: "relative" }}>
         <Image
           src="/images/open.png"  // 把你的文件放到 public/images/scan-icon.png
           alt="Scan Icon"

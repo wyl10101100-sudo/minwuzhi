@@ -1,41 +1,38 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image"; // 用 Next.js Image 组件
+import Image from "next/image";
 
 export default function ScanPage() {
   const router = useRouter();
+
   const [progress, setProgress] = useState(0);
   const [ready, setReady] = useState(false);
 
-  // 模拟加载进度
+  // 优化后的加载进度
   useEffect(() => {
+    let current = 0;
+
     const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setReady(true);
-          return 100;
-        }
-        return prev + 5;
-      });
-    }, 25);
+      current += 5;
+
+      if (current >= 100) {
+        current = 100;
+        clearInterval(timer);
+        setReady(true);
+      }
+
+      setProgress(current);
+    }, 60);
 
     return () => clearInterval(timer);
   }, []);
 
-  // 自动跳转首页
-  useEffect(() => {
-    if (ready) {
-      const auto = setTimeout(() => router.push("/"), 800);
-      return () => clearTimeout(auto);
-    }
-  }, [ready, router]);
-
   return (
     <div
       style={{
-        height: "100vh",
+        minHeight: "100dvh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -45,29 +42,61 @@ export default function ScanPage() {
         backgroundColor: "#0b1220",
         color: "white",
         fontFamily: "sans-serif",
+        overflow: "hidden",
       }}
     >
-      {/* 替换灯笼 icon 为你的图片 */}
-      <div style={{ width: "100%", height: "100%", marginBottom: 20, position: "relative" }}>
+      {/* LOGO 图片 */}
+      <div
+        style={{
+          width: 180,
+          height: 180,
+          position: "relative",
+          marginBottom: 24,
+          flexShrink: 0,
+        }}
+      >
         <Image
-          src="/images/open.png"  // 把你的文件放到 public/images/scan-icon.png
-          alt="Scan Icon"
-          fill
-          style={{ objectFit: "contain" }}
+          src="/images/open.png"
+          alt="Open"
+          width={180}
+          height={180}
+          priority
+          style={{
+            objectFit: "contain",
+          }}
         />
       </div>
 
-      <h1 style={{ fontSize: 20, marginBottom: 10 }}>福建非遗数字体验</h1>
-      <p style={{ opacity: 0.7 }}>加载文化世界 {progress}%</p>
+      {/* 标题 */}
+      <h1
+        style={{
+          fontSize: 22,
+          fontWeight: 700,
+          marginBottom: 10,
+        }}
+      >
+        福建非遗数字体验
+      </h1>
+
+      {/* 描述 */}
+      <p
+        style={{
+          opacity: 0.7,
+          fontSize: 14,
+          marginBottom: 24,
+        }}
+      >
+        加载文化世界 {progress}%
+      </p>
 
       {/* 进度条 */}
       <div
         style={{
           width: "80%",
+          maxWidth: 260,
           height: 6,
           background: "#1f2937",
           borderRadius: 999,
-          marginTop: 20,
           overflow: "hidden",
         }}
       >
@@ -76,23 +105,25 @@ export default function ScanPage() {
             width: `${progress}%`,
             height: "100%",
             background: "#22c55e",
-            transition: "width 0.2s",
+            transition: "width 0.2s ease",
           }}
         />
       </div>
 
-      {/* 加载完成手动进入按钮 */}
+      {/* 加载完成按钮 */}
       {ready && (
         <button
           onClick={() => router.push("/")}
           style={{
-            marginTop: 30,
-            padding: "10px 18px",
-            borderRadius: 8,
+            marginTop: 32,
+            padding: "12px 22px",
+            borderRadius: 12,
             backgroundColor: "#22c55e",
             color: "white",
             border: "none",
-            fontSize: 14,
+            fontSize: 15,
+            fontWeight: 600,
+            cursor: "pointer",
           }}
         >
           进入体验

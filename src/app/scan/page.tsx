@@ -1,35 +1,33 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image"; // 用 Next.js Image 组件
 
 export default function ScanPage() {
   const router = useRouter();
-  const [ready, setReady] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [ready, setReady] = useState(false);
 
   // 模拟加载进度
   useEffect(() => {
     const timer = setInterval(() => {
-      setProgress((p) => {
-        if (p >= 100) {
+      setProgress((prev) => {
+        if (prev >= 100) {
           clearInterval(timer);
           setReady(true);
           return 100;
         }
-        return p + 5;
+        return prev + 5;
       });
     }, 25);
 
     return () => clearInterval(timer);
   }, []);
 
-  // 自动跳转主页
+  // 自动跳转首页
   useEffect(() => {
     if (ready) {
-      const auto = setTimeout(() => {
-        router.push("/");
-      }, 800); // 0.8秒后自动跳转
+      const auto = setTimeout(() => router.push("/"), 800);
       return () => clearTimeout(auto);
     }
   }, [ready, router]);
@@ -49,8 +47,15 @@ export default function ScanPage() {
         fontFamily: "sans-serif",
       }}
     >
-      {/* 极简视觉占位 */}
-      <div style={{ fontSize: 50, marginBottom: 20 }}>🏮</div>
+      {/* 替换灯笼 icon 为你的图片 */}
+      <div style={{ width: 80, height: 80, marginBottom: 20, position: "relative" }}>
+        <Image
+          src="/images/open.png"  // 把你的文件放到 public/images/scan-icon.png
+          alt="Scan Icon"
+          fill
+          style={{ objectFit: "contain" }}
+        />
+      </div>
 
       <h1 style={{ fontSize: 20, marginBottom: 10 }}>福建非遗数字体验</h1>
       <p style={{ opacity: 0.7 }}>加载文化世界 {progress}%</p>

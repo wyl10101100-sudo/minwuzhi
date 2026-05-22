@@ -64,7 +64,7 @@ export default function ArticleDetailPage() {
     recommended: [
       {
         id: "r1",
-        title: "德华白瓷",
+        title: "化白瓷",
         subtitle: "凝脂如玉：德化白瓷的千年美学",
         image: "/images/banner/explore/dehua-porcelain.svg",
         href: "/article/dehua-porcelain",
@@ -80,7 +80,7 @@ export default function ArticleDetailPage() {
     itemsInText: [
       {
         id: "i1",
-        name: "德华白瓷",
+        name: "德化白瓷",
         subtitle: "凝脂如玉：德化白瓷的千年美学",
         image: "/images/banner/explore/dehua-porcelain.svg",
         price: "¥12,800",

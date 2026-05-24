@@ -92,7 +92,11 @@ export default function Home() {
               textDecoration: "none",
             }}
           >
-            ☰
+            <img
+              src="/images/profile-icon/c:\Users\Lenovo\Desktop\code demo\profile-menu-icon.svg.svg"
+              alt="菜单"
+              style={{ width: "18px", height: "18px", display: "block" }}
+            />
           </Link>
 
           <h1 style={{ fontSize: "20px", fontWeight: "bold", color: "#003331", margin: 0 }}>

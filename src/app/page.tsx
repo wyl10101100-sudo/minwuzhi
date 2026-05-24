@@ -95,7 +95,7 @@ export default function Home() {
             <img
               src="/images/profile-icon/c:\Users\Lenovo\Desktop\code demo\profile-menu-icon.svg.svg"
               alt="菜单"
-              style={{ width: "18px", height: "18px", display: "block" }}
+              style={{ width: "20px", height: "20px", display: "block" }}
             />
           </Link>
 

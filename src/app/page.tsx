@@ -99,7 +99,7 @@ export default function Home() {
             />
           </Link>
 
-          <h1 style={{ fontSize: "20px", fontWeight: "bold", color: "#003331", margin: 0 }}>
+          <h1 style={{ fontSize: "20px", fontWeight: "bold", color: "#003331", margin: 1 }}>
             闽物志
           </h1>
 

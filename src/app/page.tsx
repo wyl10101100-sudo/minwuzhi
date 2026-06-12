@@ -106,8 +106,8 @@ export default function Home() {
           <Link
             href="/coming-soon"
             style={{
-              width: "24px",
-              height: "24px",
+              width: "25px",
+              height: "25px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",

@@ -58,7 +58,7 @@ const heritageProjects = [
   },
   {
     id: "dehua-white-porcelain",
-    name: "德华白瓷",
+    name: "德化白瓷",
     desc: "中国白，温润如玉。如世界陶瓷之都，千年窑火不灭。",
     image: "/images/banner/explore/dehua-porcelain.svg",
     isLarge: false,

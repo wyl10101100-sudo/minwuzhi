@@ -188,7 +188,7 @@ export default function Home() {
                 </h2>
                 <p
                   style={{
-                    fontSize: "13px",
+                    fontSize: "12px",
                     lineHeight: 1.8,
                     opacity: 0.9,
                     margin: 0,
